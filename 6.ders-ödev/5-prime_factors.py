@@ -5,14 +5,23 @@ from colorama import Fore # Fore is used for foreground color
 def clear():
     _os = os.system('cls')
 
+# Prime number algorithm
+def is_prime(number):
+    if number < 2:
+        return False
+    for i in range(2, number):
+        if number % i == 0:
+            return False
+    return True
+
 # Prime factors algorithm
 def prime_factors(number):
     if number < 2:
         return False
     for i in range(1, number):
         if number % i == 0:
-            print(i, end=", ")
-    print(number)
+            print(",", i, end="") if i != 1 else print(i, end="")
+    print(",", number) if is_prime(number) else print()
 
 clear()
 print(f"{Fore.LIGHTRED_EX}!!!Usege:\n{Fore.LIGHTYELLOW_EX}  Exit command: CONTROL + C{Fore.RESET}")
