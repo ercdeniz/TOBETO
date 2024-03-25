@@ -3,7 +3,7 @@ from colorama import Fore, Style
 
 # Clear the screen
 def clear():
-    _os = os.system('cls')
+    os.system('cls')
 
 # Fibonacci algorithm
 def fibonacci(number, num1=1, num2=1):

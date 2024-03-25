@@ -5,9 +5,9 @@ from colorama import Fore, Style
 
 def clear():
     if os.name == 'nt':
-        _os = os.system('cls')
+        os.system('cls')
     else:
-        _os = os.system('clear')
+        os.system('clear')
 
 clear()
 pald = input(Fore.MAGENTA + "Please enter something: " + Style.RESET_ALL)

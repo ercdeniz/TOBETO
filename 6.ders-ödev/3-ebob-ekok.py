@@ -3,7 +3,7 @@ from colorama import Fore # Fore is used for foreground color
 
 # Clear the screen
 def clear():
-    _os = os.system('cls')
+    os.system('cls')
 
 # GCD algorithm: EBOB - Greatest Common Divisor
 def EBOB(num1, num2):
