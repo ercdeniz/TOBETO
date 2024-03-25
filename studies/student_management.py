@@ -3,7 +3,10 @@ from colorama import Fore # Fore is used for foreground color
 
 # Clear the screen
 def clear():
-    os.system('cls')
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
 
 # Add a student
 def add(students):

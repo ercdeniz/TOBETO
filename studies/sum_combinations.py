@@ -3,8 +3,11 @@ from colorama import Fore # Fore is used for foreground color
 
 # Clear the screen
 def clear():
-    _os = os.system('cls')
-
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
+        
 # Find the sum of two numbers in the array that is equal to the given integer
 def sum_find(array, integer):
     answer = []

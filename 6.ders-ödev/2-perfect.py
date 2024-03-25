@@ -3,7 +3,10 @@ from colorama import Fore
 
 # Clear the screen
 def clear():
-    os.system('cls')
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
 
 # Find the perfect number
 def findPerfectNumber(number):
