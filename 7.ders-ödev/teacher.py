@@ -14,34 +14,28 @@ LGREEN = Fore.LIGHTGREEN_EX
 RES = Fore.RESET
 
 
-teacher_list = []
 class Teacher:
-    def __init__(self,first_name, last_name, gender, branch):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.gender = gender
-        self.branch = branch
+    
+    teacher_list = []
 
-    def add(self):
-            name = self.first_name + " " + self.last_name
+    def add(self, first_name, last_name, gender, branch):
+            name = first_name + " " + last_name
             teacher_info = {
                 "name": name,
-                "gender": self.gender,
-                "branch": self.branch
+                "gender": gender,
+                "branch": branch
             }
-            teacher_list.append(teacher_info)
+            self.teacher_list.append(teacher_info)
             print(f"{GREEN}{name} added successfully.{RES}")
 
-    @staticmethod
-    def remove(name):
-        for index, std in enumerate(teacher_list):
+    def remove(self, name):
+        for index, std in enumerate(self.teacher_list):
             if std["name"] == name:
-                removed = teacher_list.pop(index)
+                removed = self.teacher_list.pop(index)
                 print(f"{RED}Removed: {removed['name']}{RES}")
                 break
 
-    @staticmethod
-    def list(teacher_list):
+    def list(self, teacher_list):
         if not teacher_list:
             print(f"{RED}No teachers registered yet.{RES}")
             return

@@ -37,6 +37,8 @@ def commands_info(raw_cmd , flag):
 
 clear()
 commands_info("", False)
+_student = student.Student()
+_teacher = teacher.Teacher()
 while True:
     try:
         raw_cmd = input(f"{LMAGENTA}> {RES}")
@@ -57,15 +59,13 @@ while True:
                 Last_name = input(f"{MAGENTA}\tLast name: {RES}")
                 Gender = input(f"{MAGENTA}\tGender: {RES}")
                 Number = int(input(f"{MAGENTA}\tNumber(int): {RES}"))
-                _student = student.Student(First_name, Last_name, Gender, Number)
-                _student.add()
+                _student.add(First_name, Last_name, Gender, Number)
             elif choice == "t":
                 First_name = input(f"{MAGENTA}\tFirst name: {RES}")
                 Last_name = input(f"{MAGENTA}\tLast name: {RES}")
                 Gender = input(f"{MAGENTA}\tGender: {RES}")
                 Branch = input(f"{MAGENTA}\tBranch: {RES}")
-                _teacher = teacher.Teacher(First_name, Last_name, Gender, Branch)
-                _teacher.add()
+                _teacher.add(First_name, Last_name, Gender, Branch)
             else:
                 print(f"{RED}Invalid choice.{RES}")
 
@@ -73,20 +73,20 @@ while True:
             choice = input(f"{LBLUE}\t\b\bAdd a student or teacher? (s/t): {RES}").strip().lower()
             if choice == "s":
                 Number = int(input(f"{MAGENTA}\tStudent number(int): {RES}"))
-                student.Student.remove(Number)
+                _student.remove(Number)
             elif choice == "t":
                 First_name = input(f"{MAGENTA}\tFirst_name: {RES}")
                 Last_name = input(f"{MAGENTA}\tLast_name: {RES}")
-                teacher.Teacher.remove(First_name + " " + Last_name)
+                _teacher.remove(First_name + " " + Last_name)
             else:
                 print(f"{RED}Invalid choice.{RES}")
 
         elif cmd == "list":
             choice = input(f"{LBLUE}\t\b\bList students or teachers? (s/t): {RES}").strip().lower()
             if choice == "s":
-                student.Student.list(student.student_list)
+                _student.list(_student.student_list)
             elif choice == "t":
-                teacher.Teacher.list(teacher.teacher_list)
+                _teacher.list(_teacher.teacher_list)
             else:
                 print(f"{RED}Invalid choice.{RES}")
 
