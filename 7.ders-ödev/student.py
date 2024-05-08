@@ -42,10 +42,10 @@ class Student:
                 print(f"{RED}Removed: {removed['name']}{RES}")
                 break
 
-    def list(self, student_list):
-        if not student_list:
+    def list(self):
+        if not self.student_list:
             print(f"{RED}No students registered yet.{RES}")
             return
         print(f"    {CYAN}{'Name':<18}{'Gender':<9}{'Number':<10}{RES}")
-        for student in student_list:
+        for student in self.student_list:
             print(f"    {YELLOW}{student['name'][:15]:<16}| {student['gender'][:5]:<7}| {student['number']:<10}{RES}")

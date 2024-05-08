@@ -1,2 +1,4 @@
 _ders/
 __pycache__/
+.idea/
+.vscode/
